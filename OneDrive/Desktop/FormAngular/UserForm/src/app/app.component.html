@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h3>Registration Form</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    <div class="d-flex" >
+      <button type="submit" class="btn btn-primary"> {{ editIndex !== null ? 'Update' : 'Save' }} </button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()"> Reset </button>
+    </div>
+  </form>
+
+  <hr />
+  <h4 class="mt-4">Registered Users</h4>
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email Address</th>
+        <th>DOB</th>
+        <th>Phone Numbers</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of registeredUsers let i = index">
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.dob || 'N/A' }}</td>
+        <td>{{ user.phoneNumbers }}</td>
+        <td> {{ user.address?.addressLine || user.address }},{{ user.address?.country || user.country}}, {{ user.address?.state || user.state }}, {{ user.address?.zip || user.zip }} </td>        
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editUser(i)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteUser(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

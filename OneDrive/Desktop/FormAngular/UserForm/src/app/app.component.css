@@ -1,0 +1,44 @@
+.container{
+    width: 80%;
+}
+h3{
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+    color: black;
+}
+hr{
+    border: 1px solid black;
+}
+
+formly-field label {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+  
+}
+
+formly-field input {
+  border: 2px solid #cccccccd;
+  padding: 8px;
+}
+
+input, select, textarea {
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.d-flex{
+    justify-content: end;
+    gap: 1rem;
+}
+button{
+  width: 10%;
+}
+td button{
+  width: 50%;
+  gap: 1rem;
+}
