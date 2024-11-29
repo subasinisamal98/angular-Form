@@ -34,7 +34,6 @@ export class AppComponent {
         label: 'Full Name',
         placeholder: 'Enter full name',
         required: true,
-        pattern: '/^[a-zA-Z0-9]{3,64}$/',
         minLength: 3,
         maxLength: 64,
       },
@@ -53,7 +52,7 @@ export class AppComponent {
         label: 'Email Address',
         placeholder: 'Enter email address',
         required: true,
-        pattern: '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+        pattern: '^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$',
         type: 'email',
       },
       validation: {
@@ -181,6 +180,10 @@ export class AppComponent {
     if (isPlatformBrowser(this.platformId)) {
       this.registeredUsers = JSON.parse(localStorage.getItem('users') || '[]');
     }
+  }
+
+  get isSaveDisabled(): boolean {
+    return this.form.invalid;
   }
 
   onSubmit() {
